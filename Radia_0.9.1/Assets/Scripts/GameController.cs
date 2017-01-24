@@ -109,11 +109,12 @@ public class GameController : MonoBehaviour {
 		//local app path for finding the JSON files
 		var req = new WWW ("file://" + Application.dataPath + path_prefix + "radia.json");
 		yield return req;
-		if (req.error != null) {
-			statusText.text = "Error reading radia.json";
-			return false;
-		}
-		rawJson = req.text;
+		if (req.error != null)
+        {
+            statusText.text = "Error reading radia.json";
+            yield return false;
+        }
+        rawJson = req.text;
 
 		statusText.text = "Processing Data";
 
@@ -255,8 +256,13 @@ public class GameController : MonoBehaviour {
 		renderThread.Start ();
 	}
 
-	// Method for stripping out duplicate links -- too much overhead
-	private bool FindDupLink(ulong srcid, ulong dstid) {
+    private static IEnumerator NewMethod()
+    {
+        yield return false;
+    }
+
+    // Method for stripping out duplicate links -- too much overhead
+    private bool FindDupLink(ulong srcid, ulong dstid) {
 		foreach (int key in links.Keys) {
 			Link link = links [key] as Link;
 			if (srcid == link.sourceId && dstid == link.targetId) {

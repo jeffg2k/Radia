@@ -39,6 +39,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Camera-Control/Move ZeroG")]
 public class CameraControlZeroG : MonoBehaviour {
@@ -104,7 +105,7 @@ public class CameraControlZeroG : MonoBehaviour {
 
 			if (Input.GetKeyDown("q") && controller.quit_dialog.activeInHierarchy) {
 				controller.Cleanup();
-				Application.LoadLevel("MainMenu");
+                SceneManager.LoadScene("MainMenu");
 			}
 		}
 

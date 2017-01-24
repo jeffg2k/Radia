@@ -37,12 +37,13 @@ Triggers at the end of the Radia splash screen animation and loads the Main scen
 */
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class splashToMenu : MonoBehaviour {
 
 	public void fadeRadia(string MainMenu)
 	{
-		Application.LoadLevel(MainMenu);
+        SceneManager.LoadScene(MainMenu);
 	}
 	
 }

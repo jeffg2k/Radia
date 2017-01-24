@@ -37,12 +37,13 @@ Allows the screen launch button to launch the main visualization (topology scene
 */
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LaunchScreenViz : MonoBehaviour 
 {
 	public void ScreenLaunchBtn(string Topology)
 	{
-		Application.LoadLevel(Topology);
+        SceneManager.LoadScene(Topology);
 	}
 
 	public void QuitBtn(string Topology)

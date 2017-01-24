@@ -61,8 +61,9 @@ public class Link : MonoBehaviour {
 		texture_egress  = (Texture)Resources.Load ("directionalLinesEgress") as Texture;		// Minty arrows
 		line.material.mainTexture = texture_default;
 		line.material.mainTexture.wrapMode = TextureWrapMode.Repeat;
-		line.SetWidth(0.3f, 0.3f);
-		line.SetVertexCount(2);
+        line.startWidth = 0.3f;
+        line.endWidth = 0.3f;
+        line.numPositions = 2;
 		line.SetPosition(0, new Vector3(0,0,0));
 		line.SetPosition(1, new Vector3(1,0,0));
 	}
